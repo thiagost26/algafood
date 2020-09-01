@@ -7,22 +7,21 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 import com.home.algafood.AlgafoodApplication;
-import com.home.algafood.domain.model.Cozinha;
-import com.home.algafood.domain.repository.CozinhaRepository;
+import com.home.algafood.domain.model.Estado;
+import com.home.algafood.domain.repository.EstadoRepository;
 
-public class ConsultaCozinhaMain {
+public class ConsultaEstadoMain {
 	
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApplication.class)
-					.web(WebApplicationType.NONE)
-					.run(args);
+				.web(WebApplicationType.NONE)
+				.run(args);
 		
-		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
+		EstadoRepository estados = applicationContext.getBean(EstadoRepository.class);
 		
-		List<Cozinha> todasCozinhas = cozinhas.listar();
-		
-		for(Cozinha cozinha: todasCozinhas) {
-			System.err.println(cozinha.getNome());
+		List<Estado> todosEstados = estados.listar();
+		for (Estado estado : todosEstados) {
+			System.err.println(estado.getNome());
 		}
 	}
 
