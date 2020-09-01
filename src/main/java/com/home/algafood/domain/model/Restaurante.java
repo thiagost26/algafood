@@ -53,6 +53,13 @@ public class Restaurante {
 		this.cozinha = cozinha;
 	}
 	
+		
+	@Override
+	public String toString() {
+		return "Restaurante [id=" + id + ", nome=" + nome + ", taxaFrete=" + taxaFrete + ", cozinha=" + cozinha + "]";
+	}
+	
+	
 	
 	@Override
 	public int hashCode() {

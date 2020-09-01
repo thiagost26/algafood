@@ -36,8 +36,15 @@ public class Cozinha {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 
+	
+	@Override
+	public String toString() {
+		return "Cozinha [id=" + id + ", nome=" + nome + "]";
+	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
