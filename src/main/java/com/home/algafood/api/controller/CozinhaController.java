@@ -36,7 +36,7 @@ public class CozinhaController {
 	private CadastroCozinhaService cadastroCozinha;
 	
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	public List<Cozinha> listar() {
 		return cozinhaRepository.findAll();
 	}
@@ -44,10 +44,10 @@ public class CozinhaController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cozinha> buscar(@PathVariable Long id) {
-		Optional<Cozinha> cozinhaOptinal = cozinhaRepository.findById(id);
+		Optional<Cozinha> cozinhaOptional = cozinhaRepository.findById(id);
 
-		if(cozinhaOptinal.isPresent()) {
-			return ResponseEntity.ok(cozinhaOptinal.get());			
+		if(cozinhaOptional.isPresent()) {
+			return ResponseEntity.ok(cozinhaOptional.get());			
 		}
 		
 		return ResponseEntity.notFound().build();

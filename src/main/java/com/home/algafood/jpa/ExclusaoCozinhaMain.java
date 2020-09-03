@@ -1,5 +1,7 @@
 package com.home.algafood.jpa;
 
+import java.util.Optional;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -17,10 +19,9 @@ public class ExclusaoCozinhaMain {
 		
 		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
 		
-		Cozinha cozinha = new Cozinha();
-		cozinha = cozinhas.buscar(1L);
+		Optional<Cozinha> cozinhaOptinal = cozinhas.findById(1L);
 
-		cozinhas.remover(cozinha.getId());
+		cozinhas.deleteById(cozinhaOptinal.get().getId());
 	}
 
 }

@@ -26,8 +26,8 @@ public class InclusaoEstadoMain {
 		estado2.setNome("Rondônia");
 		estado2.setSigla("RO");
 		
-		estado1 = estadoRepository.adicionar(estado1);
-		estado2 = estadoRepository.adicionar(estado2);
+		estado1 = estadoRepository.save(estado1);
+		estado2 = estadoRepository.save(estado2);
 		
 		System.err.printf("%d - %s\n", estado1.getId(), estado1.getNome());
 		System.err.printf("%d - %s\n", estado2.getId(), estado2.getNome());

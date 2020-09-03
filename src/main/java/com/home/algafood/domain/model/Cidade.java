@@ -7,16 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "estado")
-public class Estado implements Serializable {
+@Table(name = "cidade")
+public class Cidade implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
-
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -24,36 +26,43 @@ public class Estado implements Serializable {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(name = "sigla")
-	private String sigla;
-
+	@ManyToOne
+	@JoinColumn(name = "estado_id", nullable = false)
+	private Estado estado;
 	
+	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getSigla() {
-		return sigla;
+
+	public Estado getEstado() {
+		return estado;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	
-	
+
 	@Override
 	public String toString() {
-		return "Estado [id=" + id + ", nome=" + nome + ", sigla=" + sigla + "]";
+		return "Cidade [id=" + id + ", nome=" + nome + ", estado=" + estado + "]";
 	}
-	
+
 	
 	
 	@Override
@@ -63,7 +72,7 @@ public class Estado implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,7 +81,7 @@ public class Estado implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		Cidade other = (Cidade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -80,6 +89,9 @@ public class Estado implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
+	
 	
 	
 	
