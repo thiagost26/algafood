@@ -1,5 +1,7 @@
 package com.home.algafood.jpa;
 
+import java.util.Optional;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -17,9 +19,9 @@ public class BuscaRestauranteMain {
 		
 		RestauranteRepository cadastroRestaurante = applicationContext.getBean(RestauranteRepository.class);
 		
-		Restaurante restaurante = cadastroRestaurante.buscar(1L);
+		Optional<Restaurante> restaurante = cadastroRestaurante.findById(1L);
 		
-		System.err.println(restaurante.getNome());
+		System.err.println(restaurante.get().getNome());
 	}
 
 }

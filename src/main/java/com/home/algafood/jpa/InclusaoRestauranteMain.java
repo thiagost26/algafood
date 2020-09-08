@@ -28,9 +28,9 @@ public class InclusaoRestauranteMain {
 		Restaurante restaurante3 = new Restaurante();
 		restaurante3.setNome("Tuk Tuk comida Indiana");
 		
-		restaurante1 = restauranteRepository.salvar(restaurante1);
-		restaurante2 = restauranteRepository.salvar(restaurante2);
-		restaurante3 = restauranteRepository.salvar(restaurante3);
+		restaurante1 = restauranteRepository.save(restaurante1);
+		restaurante2 = restauranteRepository.save(restaurante2);
+		restaurante3 = restauranteRepository.save(restaurante3);
 		
 		System.err.printf("%d - %s\n", restaurante1.getId(), restaurante1.getNome());
 		System.err.printf("%d - %s\n", restaurante2.getId(), restaurante2.getNome());
