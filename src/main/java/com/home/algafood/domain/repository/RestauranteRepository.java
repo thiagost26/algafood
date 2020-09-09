@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.home.algafood.domain.model.Restaurante;
+import com.jayway.jsonpath.Option;
 
 @Repository
 public interface RestauranteRepository extends JpaRepository<Restaurante, Long> {
@@ -15,4 +16,10 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
 	List<Restaurante> findByTaxaFreteBetween(BigDecimal taxaInicial, BigDecimal taxaFinal);
 
 	List<Restaurante> findByNomeContainingAndCozinhaId(String nome, Long cozinha);
+	
+	Optional<Restaurante> findFirstRestauranteByNomeContaining(String nome);
+	
+	List<Restaurante> findTop2ByNomeContaining(String nome);
+	
+	int countByCozinhaId(Long cozinha);
 }
