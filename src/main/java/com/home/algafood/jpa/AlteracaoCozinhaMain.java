@@ -21,6 +21,9 @@ public class AlteracaoCozinhaMain {
 		cozinha.setId(1L);
 		cozinha.setNome("Francesa");
 		
+		System.err.println(cozinha.getNome());
+		System.err.println(cozinha.getId());
+		
 		cozinhaRepository.save(cozinha);
 	}
 
