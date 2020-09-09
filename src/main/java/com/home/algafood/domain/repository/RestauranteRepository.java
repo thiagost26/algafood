@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.home.algafood.domain.model.Restaurante;
-import com.jayway.jsonpath.Option;
 
 @Repository
 public interface RestauranteRepository extends JpaRepository<Restaurante, Long> {
